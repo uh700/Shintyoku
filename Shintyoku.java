@@ -33,7 +33,7 @@ public abstract class CalcAdd implements ActionListener{
 		mainFrame.setLocationRelativeTo(null);
 		contentPane = mainFrame.getContentPane();
 		field = new JTextField();
-        textArea = new JTextArea();
+        textArea = new JTextArea("あいうえお");
         //ボタンの追加
         button1 = new JButton("1");
         button2 = new JButton("2");
@@ -87,6 +87,11 @@ public abstract class CalcAdd implements ActionListener{
         button0.setBounds(90,250,80,30);
         buttonClear.setBounds(170,250,80,30);
         buttonStart.setBounds(10,250,80,30);
+        //テキストエリアの座標の固定
+        textArea.setBounds(10,10,100,50);
+        //テキストエリアの設置
+        Panel.add(textArea);
+        contentPane.add(Panel, BorderLayout.CENTER);
         //表示
         mainFrame.setVisible(true);
 	}
