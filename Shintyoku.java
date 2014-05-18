@@ -45,7 +45,7 @@ public class main extends JFrame{
 		}
 
 		//ボタンの追加
-	    Button1 = new JButton("1");
+	Button1 = new JButton("1");
         Button2 = new JButton("2");
         Button3 = new JButton("3");
         Button4 = new JButton("4");
