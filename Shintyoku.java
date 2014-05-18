@@ -1,12 +1,17 @@
 import java.awt.*;
 import java.awt.event.*;
-
 import javax.swing.*;
+
 public class main extends JFrame{
-	//GUI部品の変数宣言
+	
+	/*
+	 * 宣言
+	 */
 	private JFrame mainFrame;
 	private Container contentPane;
 	private JTextField numberField;
+	private JPanel Panel1;
+	private JPanel Panel2;
 	private JButton Button0;
 	private JButton Button1;
 	private JButton Button2;
@@ -19,16 +24,26 @@ public class main extends JFrame{
 	private JButton Button9;
 	private JButton ButtonClear;
 	private JButton ButtonStart;
-	//GUI挙動インスタンス
+	
+	/*
+	 * コンストラクタ
+	 */
 	public main(){
+		
+		//mainFrameの設定
 		mainFrame = new JFrame("計算ゲーム");
 		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		mainFrame.setSize(280,350);
 		mainFrame.setLocationRelativeTo(null);
-		contentPane = mainFrame.getContentPane();
 		
-		numberField = new JTextField();
-		
+		//外観をWindows風に設定
+		try {
+			UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+			SwingUtilities.updateComponentTreeUI(this);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
 		//ボタンの追加
 		Button1 = new JButton("1");
         Button2 = new JButton("2");
@@ -42,37 +57,36 @@ public class main extends JFrame{
         Button0 = new JButton("0");
         ButtonClear = new JButton("C");
         ButtonStart = new JButton("S");
-        //ボタン座標の固定
-        Button1.setBounds(10,100,80,30);
-        Button2.setBounds(90,100,80,30);
-        Button3.setBounds(170,100,80,30);
-        Button4.setBounds(10,150,80,30);
-        Button5.setBounds(90,150,80,30);
-        Button6.setBounds(170,150,80,30);
-        Button7.setBounds(10,200,80,30);
-        Button8.setBounds(90,200,80,30);
-        Button9.setBounds(170,200,80,30);
-        Button0.setBounds(90,250,80,30);
-        ButtonClear.setBounds(170,250,80,30);
-        ButtonStart.setBounds(10,250,80,30);
-        //ボタンの設置
-        contentPane.add(Button0);
-        contentPane.add(Button1);
-        contentPane.add(Button2);
-        contentPane.add(Button3);
-        contentPane.add(Button4);
-        contentPane.add(Button5);
-        contentPane.add(Button6);
-        contentPane.add(Button7);
-        contentPane.add(Button8);
-        contentPane.add(Button9);
-        contentPane.add(ButtonStart);
-        contentPane.add(ButtonClear);
+        
+        //Panel1を生成
+        Panel1 = new JPanel(new GridLayout(1,1));
+        Panel1.setBounds(0,0,270,300);
+        
+        //Panel1にButtonを設置
+        Panel1.add(Button1);
+        Panel1.add(Button2);
+        Panel1.add(Button3);
+        Panel1.add(Button4);
+        Panel1.add(Button5);
+        Panel1.add(Button6);
+        Panel1.add(Button7);
+        Panel1.add(Button8);
+        Panel1.add(Button9);
+        Panel1.add(Button0);
+        Panel1.add(ButtonClear);
+        Panel1.add(ButtonStart);
+        
+        //Panel1をContantPaneに設置
+        contentPane.add(Panel1);
+        
         //テキストフィールドの座標固定
         contentPane.add(numberField, BorderLayout.NORTH);
         mainFrame.setVisible(true);
 	}
 	
+	/*
+	 * mainメソッド
+	 */
 	public static void main(String args[]){
 		new main();
 	}
