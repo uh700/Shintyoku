@@ -1,14 +1,14 @@
 import java.awt.*;
 import java.awt.event.*;
+
 import javax.swing.*;
 
-public class main extends JFrame{
+	public class main extends JFrame{
 	
 	/*
 	 * 宣言
 	 */
 	private JFrame mainFrame;
-	private Container contentPane;
 	private JTextField numberField;
 	private JPanel Panel1;
 	private JPanel Panel2;
@@ -33,7 +33,7 @@ public class main extends JFrame{
 		//mainFrameの設定
 		mainFrame = new JFrame("計算ゲーム");
 		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		mainFrame.setSize(280,350);
+		mainFrame.setSize(300,400);
 		mainFrame.setLocationRelativeTo(null);
 		
 		//外観をWindows風に設定
@@ -45,7 +45,7 @@ public class main extends JFrame{
 		}
 
 		//ボタンの追加
-	Button1 = new JButton("1");
+		Button1 = new JButton("1");
         Button2 = new JButton("2");
         Button3 = new JButton("3");
         Button4 = new JButton("4");
@@ -58,9 +58,17 @@ public class main extends JFrame{
         ButtonClear = new JButton("C");
         ButtonStart = new JButton("S");
         
+        //テキストフィールドの追加
+        numberField = new JTextField();
+        
         //Panel1を生成
-        Panel1 = new JPanel(new GridLayout(1,1));
-        Panel1.setBounds(0,0,270,300);
+        Panel1 = new JPanel();
+        
+        //GridLayout
+        GridLayout grid1 = new GridLayout(4,3);
+        
+        //Panel1のLayoutを指定
+        Panel1.setLayout(grid1);
         
         //Panel1にButtonを設置
         Panel1.add(Button1);
@@ -76,11 +84,18 @@ public class main extends JFrame{
         Panel1.add(ButtonClear);
         Panel1.add(ButtonStart);
         
-        //Panel1をContantPaneに設置
-        contentPane.add(Panel1);
+        //Panel1をmainFrameに設置
+        mainFrame.add(Panel1);
         
-        //テキストフィールドの座標固定
-        contentPane.add(numberField, BorderLayout.NORTH);
+        //Panel2を生成
+        Panel2 = new JPanel();
+        
+        //Panel2にTextFieldを設置
+        Panel2.add(numberField);
+        
+        //Panel2をmainFrameに設置
+        mainFrame.add(Panel2,BorderLayout.NORTH);
+        
         mainFrame.setVisible(true);
 	}
 	
@@ -90,4 +105,3 @@ public class main extends JFrame{
 	public static void main(String args[]){
 		new main();
 	}
-}
