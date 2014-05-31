@@ -31,12 +31,12 @@ import javax.swing.*;
 	public main(){
 		
 		//mainFrameの設定
-		mainFrame = new JFrame("計算ゲーム");
-		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		mainFrame.setSize(300,400);
-		mainFrame.setLocationRelativeTo(null);
-		
-		//外観をWindows風に設定
+	mainFrame = new JFrame("計算ゲーム");
+	mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	mainFrame.setSize(300,400);
+	mainFrame.setLocationRelativeTo(null);
+	
+	//外観をWindows風に設定
 		try {
 			UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
 			SwingUtilities.updateComponentTreeUI(this);
@@ -44,8 +44,8 @@ import javax.swing.*;
 			e.printStackTrace();
 		}
 
-		//ボタンの追加
-		Button1 = new JButton("1");
+	//ボタンの追加
+	Button1 = new JButton("1");
         Button2 = new JButton("2");
         Button3 = new JButton("3");
         Button4 = new JButton("4");
