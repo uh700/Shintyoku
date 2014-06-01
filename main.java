@@ -54,56 +54,56 @@ import java.text.*;
 		AnswerCheck = new JButton("チェック");
 		AnswerCheck.addActionListener(this);
 		AnswerCheck.setSize(300,50);
-        ButtonClear = new JButton("C");
-        ButtonClear.addActionListener(this);
-        ButtonStart = new JButton("S");
-        ButtonStart.addActionListener(this);
+        	ButtonClear = new JButton("C");
+        	ButtonClear.addActionListener(this);
+        	ButtonStart = new JButton("S");
+        	ButtonStart.addActionListener(this);
         
-        //������������������������������������
-        numberField = new JTextField();
-        numberField.setPreferredSize(new Dimension(280,100));
+        	//������������������������������������
+        	numberField = new JTextField();
+        	numberField.setPreferredSize(new Dimension(280,100));
 
-        //���������������������
-        numberField.setFont(new Font("",Font.PLAIN,45));
+		 //���������������������
+        	numberField.setFont(new Font("",Font.PLAIN,45));
+        	
+        	//Panel1���������
+        	Panel1 = new JPanel();
+        	Panel1.setPreferredSize(new Dimension(300,300));
+        	GridLayout grid1 = new GridLayout(4,3);
         
-        //Panel1���������
-        Panel1 = new JPanel();
-        Panel1.setPreferredSize(new Dimension(300,300));
-        GridLayout grid1 = new GridLayout(4,3);
+        	//Panel1���GridLayout
+        	Panel1.setLayout(grid1);
         
-        //Panel1���GridLayout
-        Panel1.setLayout(grid1);
+        	//Panel1���Button���������
+        	for(int i=1;i<=10;i++){
+        		Panel1.add(Button[i]);
+        	}
         
-        //Panel1���Button���������
-        for(int i=1;i<=10;i++){
-        	Panel1.add(Button[i]);
-        }
+        	Panel1.add(ButtonClear);
+        	Panel1.add(ButtonStart);
         
-        Panel1.add(ButtonClear);
-        Panel1.add(ButtonStart);
+        	//Panel1���ContantPane���������
+        	mainFrame.add(Panel1);
         
-        //Panel1���ContantPane���������
-        mainFrame.add(Panel1);
+        	//Panel2���������
+        	Panel2 = new JPanel();
+        	Panel2.setPreferredSize(new Dimension(300,100));
         
-        //Panel2���������
-        Panel2 = new JPanel();
-        Panel2.setPreferredSize(new Dimension(300,100));
+        	//Panel2���TextField���������
+        	Panel2.add(numberField);
         
-        //Panel2���TextField���������
-        Panel2.add(numberField);
+        	//Panel2���ContantPane���������
+        	mainFrame.add(Panel2,BorderLayout.NORTH);
         
-        //Panel2���ContantPane���������
-        mainFrame.add(Panel2,BorderLayout.NORTH);
+        	Panel3 = new JPanel();
+        	Panel3.setPreferredSize(new Dimension(300,50));
+        	Panel3.add(AnswerCheck);
+        	mainFrame.add(Panel3,BorderLayout.SOUTH);
         
-        Panel3 = new JPanel();
-        Panel3.setPreferredSize(new Dimension(300,50));
-        Panel3.add(AnswerCheck);
-        mainFrame.add(Panel3,BorderLayout.SOUTH);
+        	mainFrame.setVisible(true);
         
-        mainFrame.setVisible(true);
-        
-        //コンピュータの計算処理
-        mainGame(); 
+        	//コンピュータの計算処理
+        	mainGame(); 
 	}
 	
 	//ActionListenerインターフェイスの定義
