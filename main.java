@@ -10,7 +10,6 @@ import java.text.*;
 	 */
 	public class main extends JFrame implements ActionListener{
 	
-	private static final long serialVersionUID = -1254910003483488734L;
 	private JFrame mainFrame;
 	private JTextField numberField;
 	private JPanel Panel1;
