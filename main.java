@@ -112,8 +112,6 @@ import java.text.*;
 	
 	//ActionListenerインターフェイスの定義
 	public void actionPerformed(ActionEvent event) {
-		NumberFormat formatter = NumberFormat.getNumberInstance(); 
-		formatter.setMaximumFractionDigits(16);
 		Object source = event.getSource(); 
 		if(Button[1].equals(source)){
 			num1 = "1";
