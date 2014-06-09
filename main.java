@@ -4,11 +4,12 @@ import java.util.*;
 import javax.swing.*;
 import java.text.*;
 
+	/* 
+	 * JFrameを継承、ActionListenerインターフェイスを使用したコンストラクタ
+	 * の生成。
+	 */
 	public class main extends JFrame implements ActionListener{
 	
-	/*
-	 * ������
-	 */
 	private static final long serialVersionUID = -1254910003483488734L;
 	private JFrame mainFrame;
 	private JTextField numberField;
@@ -28,18 +29,20 @@ import java.text.*;
 	
 	//主なGUIコンポーネントの実装
 	public main(){
-	
+		
+		//ボタンの宣言
 		String ButtonName[] = {" ","1","2","3","4","5","6","7","8","9","0"};
-		//mainFrame���������
+		
+		//土台みたいな感じ
 		mainFrame = new JFrame("計算ゲーム");
 		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		mainFrame.setSize(300,450);
 		mainFrame.setLocationRelativeTo(null);
 		
-		//数値の表示
+		//数値の表示メソッドを実行
 		RandomNumber();
 	
-		//���������Windows������������
+		//UIをWindows風に設定（ここは弄らなくて良い）
 		try {
 			UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
 			SwingUtilities.updateComponentTreeUI(this);
@@ -47,6 +50,7 @@ import java.text.*;
 			e.printStackTrace();
 		}
 
+		//ボタンの宣言、ボタンにActionListenerの機能を付加
 		for(int i=1;i<=10;i++){
 			Button[i] = new JButton(ButtonName[i]);
 			Button[i].addActionListener(this);
@@ -59,22 +63,20 @@ import java.text.*;
         	ButtonStart = new JButton("S");
         	ButtonStart.addActionListener(this);
         
-        	//������������������������������������
+        	//数値表示領域の設定
         	numberField = new JTextField();
         	numberField.setPreferredSize(new Dimension(280,100));
 
-		 //���������������������
+		//フォントの設定
         	numberField.setFont(new Font("",Font.PLAIN,45));
         	
-        	//Panel1���������
+        	//ボタンを載せるためのパネルの生成（GridLayoutを使用）
         	Panel1 = new JPanel();
         	Panel1.setPreferredSize(new Dimension(300,300));
         	GridLayout grid1 = new GridLayout(4,3);
-        
-        	//Panel1���GridLayout
         	Panel1.setLayout(grid1);
         
-        	//Panel1���Button���������
+        	//パネルにボタンを設置
         	for(int i=1;i<=10;i++){
         		Panel1.add(Button[i]);
         	}
@@ -82,28 +84,31 @@ import java.text.*;
         	Panel1.add(ButtonClear);
         	Panel1.add(ButtonStart);
         
-        	//Panel1���ContantPane���������
+        	//土台にボタン設置パネルを載せる
         	mainFrame.add(Panel1);
         
-        	//Panel2���������
+        	//数値表示領域を設置するパネルの生成
         	Panel2 = new JPanel();
         	Panel2.setPreferredSize(new Dimension(300,100));
         
-        	//Panel2���TextField���������
+        	//数値表示領域をパネルに設置
         	Panel2.add(numberField);
         
-        	//Panel2���ContantPane���������
+        	//BorderLayoutを使用して数値表示領域を載せたパネルを土台に設置
         	mainFrame.add(Panel2,BorderLayout.NORTH);
-        
+        	
+        	/*
+        	 * ユーザーが解答を入力後に押すボタンの宣言。
+        	 * このボタンを押すことで正誤判定メソッドが起動
+        	 */
         	Panel3 = new JPanel();
         	Panel3.setPreferredSize(new Dimension(300,50));
         	Panel3.add(AnswerCheck);
         	mainFrame.add(Panel3,BorderLayout.SOUTH);
-        
+        	
+        	//視覚化処理
         	mainFrame.setVisible(true);
         
-        	//コンピュータの計算処理
-        	mainGame(); 
 	}
 	
 	//ActionListenerインターフェイスの定義
@@ -146,6 +151,8 @@ import java.text.*;
 			numberField.setText(num1);
 		}else if(event.getSource() == ButtonStart){
 			numberField.setText(setText);
+		}else if(event.getSource() == AnswerCheck{
+			UserAnswerJudge();
 		}
 	}
 	
@@ -172,12 +179,13 @@ import java.text.*;
 		setText = StrQuesrion1+str+StrQuesrion2+"=";
 	}
 	
-	public void mainGame(){
-		//コンピュータの計算判定
+	//コンピュータの計算判定メソッドの実行(引数取るかもしれんから注意)
+	public void UserAnswerJudge(){
+		
 	}
 
 	/*
-	 * main
+	 * main(ここは弄らなくて良い)
 	 */
 	public static void main(String args[]){
 		new main();
